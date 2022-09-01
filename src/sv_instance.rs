@@ -45,7 +45,9 @@ fn inst_hierarchy(p: &sv_parser::ModuleInstantiation, syntax_tree: &SyntaxTree) 
                     match instance {
                         RefNode::ModuleInstantiation(y) => {
                             if y == p {
-                                if let Some(label) = unwrap_node!(node.clone(), GenerateBlockIdentifier) {
+                                if let Some(label) =
+                                    unwrap_node!(node.clone(), GenerateBlockIdentifier)
+                                {
                                     let label = identifier(label, syntax_tree).unwrap();
                                     ret.push(label);
                                 } else {
@@ -89,16 +91,22 @@ fn inst_connections(
                                 match expression_node {
                                     // Indexing a variable
                                     RefNode::HierarchicalIdentifier(_) => {
-                                        if let Some(right_node) = unwrap_node!(expression_node.clone(), Identifier) {
-                                            right_index = identifier(right_node, &syntax_tree).unwrap();
+                                        if let Some(right_node) =
+                                            unwrap_node!(expression_node.clone(), Identifier)
+                                        {
+                                            right_index =
+                                                identifier(right_node, &syntax_tree).unwrap();
                                         } else {
                                             unreachable!()
                                         }
                                     }
                                     // Indexing a number
                                     RefNode::IntegralNumber(_) => {
-                                        if let Some(right_node) = unwrap_node!(expression_node.clone(), DecimalNumber) {
-                                            right_index = get_string(right_node, &syntax_tree).unwrap();
+                                        let Some(right_node) =
+                                            unwrap_node!(expression_node.clone(), DecimalNumber)
+                                        {
+                                            right_index =
+                                                get_string(right_node, &syntax_tree).unwrap();
                                         } else {
                                             unreachable!()
                                         }
@@ -132,16 +140,22 @@ fn inst_connections(
                                 match expression_node {
                                     // Indexing a variable
                                     RefNode::HierarchicalIdentifier(_) => {
-                                        if let Some(right_node) = unwrap_node!(expression_node.clone(), Identifier) {
-                                            right_index = identifier(right_node, &syntax_tree).unwrap();
+                                        if let Some(right_node) =
+                                            unwrap_node!(expression_node.clone(), Identifier)
+                                        {
+                                            right_index =
+                                                identifier(right_node, &syntax_tree).unwrap();
                                         } else {
                                             unreachable!()
                                         }
                                     }
                                     // Indexing a number
                                     RefNode::IntegralNumber(_) => {
-                                        if let Some(right_node) = unwrap_node!(expression_node.clone(), DecimalNumber) {
-                                            right_index = get_string(right_node, &syntax_tree).unwrap();
+                                        if let Some(right_node) =
+                                            unwrap_node!(expression_node.clone(), DecimalNumber)
+                                        {
+                                            right_index =
+                                                get_string(right_node, &syntax_tree).unwrap();
                                         } else {
                                             unreachable!()
                                         }
