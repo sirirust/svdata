@@ -30,7 +30,7 @@ module M7 (input in7_1, [2:0] in7_2, output out7_1);
     M3 i3 (.in3_1(w1), .in3_2(in7_2[1]), .in3_3(w2), .out3_1(out7_1));
 endmodule
 
-module M8 (input in8_1, [2:0] in8_2, output out8_1, out8_2, out8_3);
+module M8 (input in8_1, in8_2, output out8_1, out8_2, out8_3);
     M5 i5 (.in5_1(in8_1), .out5_1(out8_1), .out5_2(out8_2));
     M7 i7 (.in7_1(in8_1), .in7_2(in8_2), .out7_1(out8_3));
 endmodule
